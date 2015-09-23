@@ -26,5 +26,63 @@ class RandoTest : public ::testing::Test
 TEST(RandoTest, allChildrenSmile)
 {
 	Rando rando;
-	ASSERT_TRUE( rando.shouldWorry(true,true,true) );
+	ASSERT_TRUE(rando.shouldWorry(true, true, true));
+  /*
+  ASSERT_TRUE(rando.shouldWorry(true, false, false));
+  ASSERT_TRUE(rando.shouldWorry(false, true, false));
+  ASSERT_TRUE(rando.shouldWorry(false, false, true));
+  ASSERT_FALSE(rando.shouldWorry(false, false, false));
+  ASSERT_FALSE(rando.shouldWorry(true, true, false));
+  ASSERT_FALSE(rando.shouldWorry(true, false, true));
+  ASSERT_FALSE(rando.shouldWorry(false, true, true));
+  */
 }
+
+TEST(RandoTest, oneChildSmiles1)
+{
+	Rando rando;
+  ASSERT_TRUE(rando.shouldWorry(true, false, false));
+}
+
+TEST(RandoTest, oneChildSmiles2)
+{
+	Rando rando;
+  ASSERT_TRUE(rando.shouldWorry(false, true, false));
+}
+
+TEST(RandoTest, oneChildSmiles3)
+{
+	Rando rando;
+  ASSERT_TRUE(rando.shouldWorry(false, false, true));
+}
+
+TEST(RandoTest, twoSmile1)
+{
+  Rando rando;
+  ASSERT_FALSE(rando.shouldWorry(true, true, false));
+}
+
+TEST(RandoTest, twoSmile2)
+{
+  Rando rando; 
+  ASSERT_FALSE(rando.shouldWorry(true, false, true));
+}
+TEST(RandoTest, twoSmile3)
+{
+  Rando rando;
+  ASSERT_FALSE(rando.shouldWorry(false, true, true));
+}
+
+/* DIVISIBLE BY TESTS */
+TEST(RandoTest, firstIsZero)
+{
+  Rando rando;
+  ASSERT_FALSE(rando.isDivisibleBy(0, 5));
+}
+
+TEST(RandoTest, secondIsZero)
+{
+  Rando rando;
+  ASSERT_FALSE(rando.isDivisibleBy(5, 0));
+}
+
